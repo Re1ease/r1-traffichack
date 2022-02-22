@@ -54,8 +54,7 @@ RegisterNetEvent("pl-traffichack:startHack", function()
     
 	startAnim()
 
-	-- local success = exports['howdy-hackminigame']:Begin(2, 3000)
-	local success = true
+	local success = exports['howdy-hackminigame']:Begin(2, 3000)
 
 	if success then
         -- It seems that we can't use ObjToNet on obj because it is a local object and not a network object
