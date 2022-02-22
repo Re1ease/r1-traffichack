@@ -52,9 +52,10 @@ RegisterNetEvent("pl-traffichack:startHack", function()
 	startAnim()
 
 	local success = exports['howdy-hackminigame']:Begin(2, 3000)
+	local obj = object
 
 	if success then
-		TriggerServerEvent("pl-traffichack:server:changeLights")
+		TriggerServerEvent("pl-traffichack:server:changeLights", obj)
 	end
 
 	ClearPedTasks(PlayerPedId())
@@ -63,12 +64,12 @@ end)
 RegisterNetEvent("pl-traffichack:changeLights")
 AddEventHandler("pl-traffichack:changeLights", function()
 	for i = 0, 3 do
-		SetEntityTrafficlightOverride(object, i)
+		SetEntityTrafficlightOverride(obj, i)
 		Wait(100)
 	end
 
-	SetEntityTrafficlightOverride(object, 0)
+	SetEntityTrafficlightOverride(obj, 0)
 	Wait(10000) --How long should it be green?
-	SetEntityTrafficlightOverride(object, 3)
+	SetEntityTrafficlightOverride(obj, 3)
 	object = 0
 end)
