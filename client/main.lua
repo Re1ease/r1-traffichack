@@ -8,19 +8,34 @@ local trafficLights = {
 	0x2323cdc5
 }
 
-CreateThread(function()
-	exports['qb-target']:AddTargetModel(trafficLights, {
+if Config.QBCore then
+	CreateThread(function()
+		exports['qb-target']:AddTargetModel(trafficLights, {
+			options = {
+				{
+					event = "pl-traffichack:startHack",
+					icon = "fa-brands fa-usb",
+					label = "Hack",
+					item = 'phone',	--Replace with your own item
+				},
+			},
+			distance = 1.2,
+		})
+	end)
+end
+
+if Config.QTarget then
+	exports.qtarget:AddTargetModel(trafficLights, {
 		options = {
 			{
-				event = "pl-traffichack:startHack",
-				icon = "fa-brands fa-usb",
-				label = "Hack",
-				item = 'phone',	--Replace with your own item
+					event = "pl-traffichack:startHack",
+					icon = "fa-brands fa-usb",
+					label = "Hack",
 			},
 		},
-		distance = 1.2,
+		distance = 1.2
 	})
-end)
+end
 
 function getLight()
     local coords = GetEntityCoords(PlayerPedId())
