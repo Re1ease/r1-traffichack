@@ -31,7 +31,6 @@ if Config.QTarget then
 					event = "pl-traffichack:startHack",
 					icon = "fa-brands fa-usb",
 					label = "Hack",
-					item = 'phone',	--Replace with your own item
 			},
 		},
 		distance = 1.2
